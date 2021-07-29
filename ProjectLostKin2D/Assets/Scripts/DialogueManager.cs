@@ -56,5 +56,6 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isIn", false);
         sentences.Clear();
+
     }
 }
