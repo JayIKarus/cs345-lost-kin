@@ -5342,7 +5342,7 @@ MonoBehaviour:
   jumpForce: 10
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
-  defaultAdditionalJumps: 2
+  defaultAdditionalJumps: 1
   additionalJumps: 0
   rememberGroundedFor: 0
   lastTimeGrounded: 0
