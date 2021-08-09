@@ -25,13 +25,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        p_animator = gameObject.GetComponent<Animator>();
+        ///p_animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        /*if (Input.GetKey(KeyCode.A))
         {
             p_animator.SetTrigger("Walk_Right");
         }
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             p_animator.ResetTrigger("Idle");
-        }
+        }*/
         Move();
         Jump();
         BetterJump();
