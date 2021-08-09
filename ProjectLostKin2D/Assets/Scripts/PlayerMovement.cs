@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float moveBy = x * runSpeed;
         body.velocity = new Vector2(moveBy, body.velocity.y);
-        
     }
 
     void Jump()

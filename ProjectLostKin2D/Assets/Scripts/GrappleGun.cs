@@ -121,6 +121,7 @@ public class GrappleGun : MonoBehaviour
     void SetGrapplePoint()
     {
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
+        //print(Physics2D.Raycast(firePoint.position, distanceVector.normalized).collider.tag != "Chat");
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
             RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized);
