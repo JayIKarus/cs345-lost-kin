@@ -54,7 +54,26 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float moveBy = x * runSpeed;
         body.velocity = new Vector2(moveBy, body.velocity.y);
-        
+        /*
+        Vector2 direction = Vector2.zero;
+        if (Input.GetKey(KeyCode.D))
+        {
+            direction += Vector2.right;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            direction += Vector2.left;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            direction += Vector2.up;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            direction += Vector2.down;
+        }
+        body.MovePosition(body.position + direction * Time.deltaTime * runSpeed);
+        */
     }
 
     void Jump()

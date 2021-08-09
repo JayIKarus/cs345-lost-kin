@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public bool gameOver = false;
     public GameObject menuText;
     string curScene;
+    public static bool gamePaused = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -38,20 +39,31 @@ public class GameController : MonoBehaviour
         {
             QuitGame();
         }
-        if (menuText.active == true) {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) {
-                menuText.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) {
+            if (gamePaused) {
+                Resume();
+            }
+            else
+            {
+                Pause();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
-        {
-            menuText.SetActive(true);
-            
-        }
+        
     }
 
-    
+    public void Resume()
+    {
+        menuText.SetActive(false);
+        Time.timeScale = 1f;
+        gamePaused = false;
+    }
 
+    public void Pause()
+    {
+        menuText.SetActive(true);
+        Time.timeScale = 0f;
+        gamePaused = true;
+    }
 
 
     public void ReturnToMenu()
@@ -61,8 +73,8 @@ public class GameController : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Demo");
-        curScene = "Demo";
+        SceneManager.LoadScene("Lvl1_Proto");
+        curScene = "Lvl1_Proto";
     }
 
     public void QuitGame()

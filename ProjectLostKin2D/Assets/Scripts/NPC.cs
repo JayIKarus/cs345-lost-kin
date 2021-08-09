@@ -15,12 +15,12 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && Input.GetKey(KeyCode.F))
         {
             Debug.Log("I'm triggered");
             npcDialogue.TriggerDialogue();
