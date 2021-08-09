@@ -20,7 +20,7 @@ public class NPC : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && Input.GetKey(KeyCode.Mouse1))
+        if (other.CompareTag("Player") && Input.GetKey(KeyCode.F))
         {
             Debug.Log("I'm triggered");
             npcDialogue.TriggerDialogue();
