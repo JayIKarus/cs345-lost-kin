@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             DisplayNextSentence();
         }
@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        
+        DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
@@ -49,13 +49,22 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+        
     }
 
+    IEnumerator TypeSentence (string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
+    }
     void EndDialogue()
     {
         animator.SetBool("isIn", false);
-        sentences.Clear();
-
     }
 }
