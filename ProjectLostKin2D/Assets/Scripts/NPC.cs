@@ -37,7 +37,7 @@ public class NPC : MonoBehaviour
             npcDialogue.TriggerDialogue();
         }
 
-        if (other.CompareTag("Turn"))
+        if (other.CompareTag("Turn") || other.CompareTag("Player"))
         {
             if(XMove)
             {

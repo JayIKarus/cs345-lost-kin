@@ -21,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform isGroundChecker;
     public float checkGroundRadius;
     public LayerMask groundLayer;
+
+    public float knockback;
+    public float knockbackCount;
+    public float knockbackLen;
+    public bool knockFromRight;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +59,24 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float moveBy = x * runSpeed;
         body.velocity = new Vector2(moveBy, body.velocity.y);
-        
+
+        if (knockbackCount <= 0)
+        {
+            body.velocity = new Vector2(moveBy, body.velocity.y);
+        }
+        else
+        {
+            if(knockFromRight)
+            {
+                body.velocity = new Vector2(-knockback, knockback);
+            }
+            if(!knockFromRight)
+            {
+                body.velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
+
     }
 
     void Jump()
@@ -97,4 +119,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
 }
