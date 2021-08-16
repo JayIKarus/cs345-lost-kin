@@ -291,7 +291,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1143,8 +1143,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue >>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 372316691}
   - component: {fileID: 372316690}
   - component: {fileID: 372316689}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: GrapplingGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1333,8 +1333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappleVine: {fileID: 119279694}
-  grappleToAll: 1
-  grappableLayerNumber: 9
+  grappleToAll: 0
+  grappableLayerNumber: 6
   player: {fileID: 764249401}
   m_camera: {fileID: 2145588488}
   gunHolder: {fileID: 764249408}
@@ -1842,6 +1842,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &635151123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 635151124}
+  m_Layer: 0
+  m_Name: CeilingChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &635151124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635151123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012, y: 0.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 764249408}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645208997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2179,9 @@ GameObject:
   - component: {fileID: 764249407}
   - component: {fileID: 764249406}
   - component: {fileID: 764249405}
+  - component: {fileID: 764249404}
   - component: {fileID: 764249403}
+  - component: {fileID: 764249409}
   - component: {fileID: 764249402}
   m_Layer: 0
   m_Name: Player
@@ -2158,8 +2190,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &764249402
-PolygonCollider2D:
+--- !u!61 &764249402
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2171,7 +2203,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.18493193}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2181,22 +2213,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.2395196, y: 0.45086575}
-      - {x: 0.021221876, y: 0.51598454}
-      - {x: -0.22565746, y: 0.4563203}
-      - {x: -0.32734942, y: 0.3392619}
-      - {x: -0.3313203, y: -0.26536644}
-      - {x: -0.2001841, y: -0.28827703}
-      - {x: -0.19889545, y: -0.5}
-      - {x: 0.21875, y: -0.5}
-      - {x: 0.27175665, y: -0.34168136}
-      - {x: 0.18993235, y: -0.08698833}
-      - {x: 0.24623013, y: -0.0061416626}
-      - {x: 0.311193, y: 0.061996818}
-      - {x: 0.32612395, y: 0.29287803}
-      - {x: 0.29558206, y: 0.39278567}
+  serializedVersion: 2
+  m_Size: {x: 0.63013613, y: 0.63013613}
+  m_EdgeRadius: 0
 --- !u!114 &764249403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2206,25 +2225,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 764249401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45501a977d951da488d0d6c5a54e2c95, type: 3}
+  m_Script: {fileID: 11500000, guid: 63642bfa7bea14b42a0e18d5f0da44c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  p_animator: {fileID: 0}
-  runSpeed: 10
-  jumpForce: 10
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  defaultAdditionalJumps: 1
-  additionalJumps: 1
-  rememberGroundedFor: 0
-  lastTimeGrounded: 0
-  isSwinging: 0
-  isGroundChecker: {fileID: 491776100}
-  checkGroundRadius: 0
-  groundLayer:
+  controller: {fileID: 764249404}
+  runSpeed: 30
+--- !u!114 &764249404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764249401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79cdaaa4be94604f87dc0b321cca070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_JumpForce: 250
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 1
+  m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  m_GroundCheck: {fileID: 491776100}
+  m_CeilingCheck: {fileID: 635151124}
+  m_CrouchDisableCollider: {fileID: 764249402}
+  additionalJumps: 1
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!231 &764249405
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -2305,7 +2339,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1047539433
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 381e59feca641d04fbcca21ecf095ee2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2332,9 +2366,26 @@ Transform:
   - {fileID: 2145588485}
   - {fileID: 491776100}
   - {fileID: 1744026580}
+  - {fileID: 635151124}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &764249409
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764249401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: -0.21}
+  serializedVersion: 2
+  m_Radius: 0.28
 --- !u!1 &802394709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,7 +2740,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3444,7 +3495,7 @@ GameObject:
   - component: {fileID: 1677205980}
   - component: {fileID: 1677205982}
   - component: {fileID: 1677205981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lamp_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3602,8 +3653,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NPC Name Here
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4324,8 +4375,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
