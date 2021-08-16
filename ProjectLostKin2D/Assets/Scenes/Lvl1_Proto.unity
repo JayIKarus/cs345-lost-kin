@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 372316691}
   - component: {fileID: 372316690}
   - component: {fileID: 372316689}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: GrapplingGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1333,8 +1333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappleVine: {fileID: 119279694}
-  grappleToAll: 1
-  grappableLayerNumber: 9
+  grappleToAll: 0
+  grappableLayerNumber: 6
   player: {fileID: 764249401}
   m_camera: {fileID: 2145588488}
   gunHolder: {fileID: 764249408}
@@ -1842,6 +1842,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &635151123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 635151124}
+  m_Layer: 0
+  m_Name: CeilingChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &635151124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635151123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012, y: 0.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 764249408}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645208997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,8 +2228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63642bfa7bea14b42a0e18d5f0da44c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  runSpeed: 4
+  controller: {fileID: 764249404}
+  runSpeed: 30
 --- !u!114 &764249404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2212,16 +2242,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79cdaaa4be94604f87dc0b321cca070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
+  m_JumpForce: 250
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
-  m_AirControl: 0
+  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  m_GroundCheck: {fileID: 0}
-  m_CeilingCheck: {fileID: 0}
-  m_CrouchDisableCollider: {fileID: 0}
+  m_GroundCheck: {fileID: 491776100}
+  m_CeilingCheck: {fileID: 635151124}
+  m_CrouchDisableCollider: {fileID: 764249402}
   additionalJumps: 1
   OnLandEvent:
     m_PersistentCalls:
@@ -2309,7 +2339,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1047539433
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 381e59feca641d04fbcca21ecf095ee2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2336,6 +2366,7 @@ Transform:
   - {fileID: 2145588485}
   - {fileID: 491776100}
   - {fileID: 1744026580}
+  - {fileID: 635151124}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3464,7 +3495,7 @@ GameObject:
   - component: {fileID: 1677205980}
   - component: {fileID: 1677205982}
   - component: {fileID: 1677205981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lamp_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
