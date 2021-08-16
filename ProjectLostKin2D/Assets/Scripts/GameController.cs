@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        curScene = "MainMenu";
+        curScene = "StartMenu";
     }
 
     // Update is called once per frame
@@ -68,8 +68,9 @@ public class GameController : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
-        curScene = "MainMenu";
+        SceneManager.LoadScene("StartMenu");
+        Time.timeScale = 1f;
+        curScene = "StartMenu";
     }
     public void StartGame()
     {
