@@ -21,17 +21,22 @@ public class PlayerMovement : MonoBehaviour
     public Transform isGroundChecker;
     public float checkGroundRadius;
     public LayerMask groundLayer;
+
+    public float knockback;
+    public float knockbackCount;
+    public float knockbackLen;
+    public bool knockFromRight;
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        ///p_animator = gameObject.GetComponent<Animator>();
+        p_animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             p_animator.SetTrigger("Walk_Right");
         }
@@ -42,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             p_animator.ResetTrigger("Idle");
-        }*/
+        }
         Move();
         Jump();
         BetterJump();
@@ -54,26 +59,24 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float moveBy = x * runSpeed;
         body.velocity = new Vector2(moveBy, body.velocity.y);
-        /*
-        Vector2 direction = Vector2.zero;
-        if (Input.GetKey(KeyCode.D))
+
+        if (knockbackCount <= 0)
         {
-            direction += Vector2.right;
+            body.velocity = new Vector2(moveBy, body.velocity.y);
         }
-        if (Input.GetKey(KeyCode.A))
+        else
         {
-            direction += Vector2.left;
+            if(knockFromRight)
+            {
+                body.velocity = new Vector2(-knockback, knockback);
+            }
+            if(!knockFromRight)
+            {
+                body.velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.W))
-        {
-            direction += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            direction += Vector2.down;
-        }
-        body.MovePosition(body.position + direction * Time.deltaTime * runSpeed);
-        */
+
     }
 
     void Jump()
@@ -116,4 +119,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
 }
