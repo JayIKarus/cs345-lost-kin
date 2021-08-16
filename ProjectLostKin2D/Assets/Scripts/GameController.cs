@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("StartMenu");
         curScene = "StartMenu";
+        Time.timeScale = 1f;
     }
     public void StartGame()
     {

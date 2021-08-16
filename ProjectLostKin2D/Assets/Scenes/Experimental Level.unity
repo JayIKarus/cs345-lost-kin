@@ -2344,6 +2344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Bill
   npcDialogue: {fileID: 375714093}
+  EnemySpeed: 0
+  XMove: 0
 --- !u!61 &189191186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5103,6 +5105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Bill
   npcDialogue: {fileID: 375714093}
+  EnemySpeed: 0
+  XMove: 0
 --- !u!114 &375714093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8694,6 +8698,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &645070462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 645070463}
+  m_Layer: 0
+  m_Name: CeilingChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &645070463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645070462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012, y: 0.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1164213937}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &647600030
 GameObject:
   m_ObjectHideFlags: 0
@@ -15038,6 +15072,7 @@ GameObject:
   - component: {fileID: 1164213933}
   - component: {fileID: 1164213938}
   - component: {fileID: 1164213939}
+  - component: {fileID: 1164213940}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15167,6 +15202,7 @@ Transform:
   - {fileID: 1671571547}
   - {fileID: 519420032}
   - {fileID: 1049255215}
+  - {fileID: 645070463}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15179,25 +15215,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1164213932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45501a977d951da488d0d6c5a54e2c95, type: 3}
+  m_Script: {fileID: 11500000, guid: 63642bfa7bea14b42a0e18d5f0da44c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  p_animator: {fileID: 0}
-  runSpeed: 10
-  jumpForce: 10
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  defaultAdditionalJumps: 1
-  additionalJumps: 0
-  rememberGroundedFor: 0
-  lastTimeGrounded: 0
-  isSwinging: 0
-  isGroundChecker: {fileID: 1049255215}
-  checkGroundRadius: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  controller: {fileID: 1164213940}
+  body: {fileID: 1164213935}
+  knockback: 0
+  knockbackCount: 0
+  knockbackLen: 0
+  knockFromRight: 0
+  runSpeed: 40
 --- !u!95 &1164213939
 Animator:
   serializedVersion: 3
@@ -15217,6 +15244,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1164213940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164213932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79cdaaa4be94604f87dc0b321cca070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_JumpForce: 250
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  m_GroundCheck: {fileID: 1049255215}
+  m_CeilingCheck: {fileID: 645070463}
+  m_CrouchDisableCollider: {fileID: 1164213933}
+  additionalJumps: 1
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1164279358
 GameObject:
   m_ObjectHideFlags: 0
@@ -18160,6 +18216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Bill
   npcDialogue: {fileID: 1441205676}
+  EnemySpeed: 0
+  XMove: 0
 --- !u!114 &1441205676
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,13 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
-
-    public bool isSwinging = false;
-    bool isGrounded = false;
-    public Transform isGroundChecker;
-    public float checkGroundRadius;
-    public LayerMask groundLayer;
-
+    public Rigidbody2D body;
+    
     public float knockback;
     public float knockbackCount;
     public float knockbackLen;
@@ -21,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        p_animator = gameObject.GetComponent<Animator>();
+        ///p_animator = gameObject.GetComponent<Animator>();
     }
     public float runSpeed = 40f;
 
@@ -39,8 +34,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*if (knockbackCount <= 0)
+        {
+            body.velocity = new Vector2(0f, body.velocity.y);
+        }
+        else
+        {
+            if (knockFromRight)
+            {
+                body.velocity = new Vector2(-knockback, knockback);
+            }
+            if (!knockFromRight)
+            {
+                body.velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }*/
+
         controller.Move(horiMovement * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
+
 
 }
