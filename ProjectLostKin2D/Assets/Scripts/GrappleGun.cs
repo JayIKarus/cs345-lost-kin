@@ -87,7 +87,7 @@ public class GrappleGun : MonoBehaviour
                     Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
                     Vector2 targetPos = grapplePoint - firePointDistnace;
                     gunHolder.position = Vector2.Lerp(gunHolder.position, targetPos, Time.deltaTime * launchSpeed);
-                    grappleObject.rigidbody.transform.parent = player.transform;
+                    
                 }
             }
 
@@ -103,7 +103,7 @@ public class GrappleGun : MonoBehaviour
             grappleVine.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
-            grappleObject.transform.parent = null;
+            ///grappleObject.transform.parent = null;
         }
         else
         {
