@@ -95,6 +95,10 @@ public class GrappleGun : MonoBehaviour
             grappleVine.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
+<<<<<<< Updated upstream
+=======
+            //grappleObject.transform.parent = null;
+>>>>>>> Stashed changes
         }
         else
         {
