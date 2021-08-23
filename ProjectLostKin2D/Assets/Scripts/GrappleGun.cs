@@ -93,7 +93,7 @@ public class GrappleGun : MonoBehaviour
 
             if (launchType == LaunchType.Physics_Launch && grappleVine.isGrappling) {
                 {
-                    player.GetComponent<SpringJoint2D>().connectedBody = grappleObject.rigidbody;                  
+                    player.GetComponent<SpringJoint2D>().connectedBody = grappleObject.rigidbody;
                 }
                 player.GetComponent<CharacterController2D>().additionalJumps = 1;
             }
@@ -103,7 +103,7 @@ public class GrappleGun : MonoBehaviour
             grappleVine.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
-            grappleObject.transform.parent = null;
+            //grappleObject.transform.parent = null;
         }
         else
         {
@@ -197,4 +197,3 @@ public class GrappleGun : MonoBehaviour
     }
 
 }
-
