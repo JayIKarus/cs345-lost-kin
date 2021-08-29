@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Lvl1_Proto");
+        SceneManager.LoadScene("Lv1");
     }
 
     public void Quit()
