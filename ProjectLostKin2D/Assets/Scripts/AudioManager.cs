@@ -1,6 +1,7 @@
 using System;
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +11,13 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioMixerGroup musicMixerGroup;
     [SerializeField] private AudioMixerGroup sfxMixerGroup;
+
+    public Slider bgmSlider, sfxSlider;
+    private float bgmFloat, sfxFloat;
+
+    private static readonly string FirstPlay = "FirstPlay";
+    private static readonly string bgmPref = "Music";
+    private static readonly string sfxPref = "SFX";
 
     void Awake()
     {
@@ -50,6 +58,7 @@ public class AudioManager : MonoBehaviour
     public void Start()
     {
         Play("MainMenu");
+        LoadValues();
     }
 
     public void Play(string name)
@@ -70,5 +79,29 @@ public class AudioManager : MonoBehaviour
     {
         musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(AudioOptionsManager.musicVolume) * 20);
         musicMixerGroup.audioMixer.SetFloat("SFX Volume", Mathf.Log10(AudioOptionsManager.sfxVolume) * 20);
+        Debug.Log(AudioOptionsManager.musicVolume);
+    }
+
+    public void SaveBGM()
+    {
+        bgmFloat = bgmSlider.value;
+        PlayerPrefs.SetFloat(bgmPref, bgmFloat);
+        //Debug.Log(bgmFloat);
+    }
+
+    public void SaveSFX()
+    {
+        sfxFloat = sfxSlider.value;
+        PlayerPrefs.SetFloat(sfxPref, sfxFloat);
+
+        //Debug.Log(sfxFloat);
+    }
+
+    void LoadValues()
+    {
+        bgmFloat = PlayerPrefs.GetFloat(bgmPref);
+        sfxFloat = PlayerPrefs.GetFloat(sfxPref);
+        bgmSlider.value = bgmFloat;
+        sfxSlider.value = sfxFloat;
     }
 }
