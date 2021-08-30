@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public CharacterController2D controller;
     public Rigidbody2D body;
     public Animator p_animator;
-    
+    public float runSpeed = 10f;
+    public float jumpForce = 10f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+    public int defaultAdditionalJumps = 1;
+
+    public int additionalJumps;
+    public float rememberGroundedFor;
+    public float lastTimeGrounded;
+
+    public bool isSwinging = false;
+    bool isGrounded = false;
+    public Transform isGroundChecker;
+    public float checkGroundRadius;
+    public LayerMask groundLayer;
+
     public float knockback;
     public float knockbackCount;
     public float knockbackLen;
@@ -19,80 +32,92 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         p_animator = gameObject.GetComponent<Animator>();
     }
-    public float runSpeed = 40f;
 
-    float horiMovement = 0f;
-    bool jump = false;
-    bool crouch = false;
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        horiMovement = Input.GetAxisRaw("Horizontal") * runSpeed;   
-    
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKey(KeyCode.A))
         {
-            jump = true;
+            p_animator.SetTrigger("Walk_Right");
         }
-
-        if (Input.GetButton("Crouch")) {
-            p_animator.SetBool("IsCrouching", true);
-            crouch = true;
-        }
-
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
-            p_animator.SetBool("IsMoving", true);
-            if (controller.m_FacingRight == true)
-            {
-                p_animator.SetBool("IsFacingRight", true);
-            }
-            if (crouch == false)
-            {
-                p_animator.SetBool("IsCrouching", false);
-            }
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            p_animator.SetBool("IsMoving", true);
-            if (controller.m_FacingRight == false)
-            {
-                p_animator.SetBool("IsFacingRight", false);
-            }
-            if (crouch == false)
-            {
-                p_animator.SetBool("IsCrouching", false);
-            }
+            p_animator.SetTrigger("Walk_Left");
         }
         else
         {
-            p_animator.SetBool("IsMoving", false);
+            p_animator.ResetTrigger("Idle");
         }
-        
-       
-        /*
+        Move();
+        Jump();
+        BetterJump();
+        CheckIfGrounded();
+    }
+
+    void Move()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        float moveBy = x * runSpeed;
+        body.velocity = new Vector2(moveBy, body.velocity.y);
+
         if (knockbackCount <= 0)
         {
-            body.velocity = new Vector2(0f, body.velocity.y);
+            body.velocity = new Vector2(moveBy, body.velocity.y);
         }
         else
         {
-            if (knockFromRight)
+            if(knockFromRight)
             {
                 body.velocity = new Vector2(-knockback, knockback);
             }
-            if (!knockFromRight)
+            if(!knockFromRight)
             {
                 body.velocity = new Vector2(knockback, knockback);
             }
             knockbackCount -= Time.deltaTime;
-        }*/
+        }
+
     }
 
-    private void FixedUpdate()
+    void Jump()
     {
-        
-        controller.Move(horiMovement * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
-        crouch = false;
+        if (((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow))) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor || additionalJumps > 0))
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpForce);
+            additionalJumps--;
+
+        }
+    }
+
+    void BetterJump()
+    {
+        if (body.velocity.y < 0)
+        {
+            body.velocity += Vector2.up * Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (body.velocity.y > 0 && (!Input.GetKey(KeyCode.Space) || !Input.GetKey(KeyCode.W) || !Input.GetKey(KeyCode.UpArrow)))
+        {
+            body.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+    }
+
+    void CheckIfGrounded()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(isGroundChecker.position, checkGroundRadius, groundLayer);
+
+        if (collider != null)
+        {
+            isGrounded = true;
+            additionalJumps = defaultAdditionalJumps;
+        }
+        else
+        {
+            if(isGrounded)
+            {
+                lastTimeGrounded = Time.time;
+            }
+            isGrounded = false;
+        }
     }
 
 

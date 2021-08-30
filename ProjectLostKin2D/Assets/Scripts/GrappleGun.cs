@@ -51,7 +51,6 @@ public class GrappleGun : MonoBehaviour
     [SerializeField] private float targetDistance = 3;
     [SerializeField] private float targetFrequncy = 1;
 
-    [HideInInspector] public RaycastHit2D grappleObject;
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
 
@@ -70,11 +69,11 @@ public class GrappleGun : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
-            /*if (grappleVine.enabled)
+            if (grappleVine.enabled)
             {
                 RotateGun(grapplePoint, false);
-            }*/
-            if (!grappleVine.enabled)
+            }
+            else
             {
                 Vector2 mousePos = m_camera.ScreenToWorldPoint(Input.mousePosition);
                 RotateGun(mousePos, true);
@@ -87,15 +86,8 @@ public class GrappleGun : MonoBehaviour
                     Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
                     Vector2 targetPos = grapplePoint - firePointDistnace;
                     gunHolder.position = Vector2.Lerp(gunHolder.position, targetPos, Time.deltaTime * launchSpeed);
-                    
                 }
-            }
-
-            if (launchType == LaunchType.Physics_Launch && grappleVine.isGrappling) {
-                {
-                    player.GetComponent<SpringJoint2D>().connectedBody = grappleObject.rigidbody;
-                }
-                player.GetComponent<CharacterController2D>().additionalJumps = 1;
+                player.GetComponent<PlayerMovement>().additionalJumps = 1;
             }
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -103,7 +95,6 @@ public class GrappleGun : MonoBehaviour
             grappleVine.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
-            ///grappleObject.transform.parent = null;
         }
         else
         {
@@ -138,7 +129,6 @@ public class GrappleGun : MonoBehaviour
             {
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistance || !hasMaxDistance)
                 {
-                    grappleObject = _hit;
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleVine.enabled = true;
@@ -197,3 +187,4 @@ public class GrappleGun : MonoBehaviour
     }
 
 }
+

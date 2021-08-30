@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - Turn
+  - Enemy
   layers:
   - Default
   - TransparentFX

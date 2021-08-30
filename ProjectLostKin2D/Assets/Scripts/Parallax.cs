@@ -5,57 +5,32 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
 
-    private float length, startPosX, startPosY;
-    private float distanceX, distanceY;
-    private float tempX, tempY;
+    private float length, startPos;
+    private float distance;
+    private float temp;
 
-    public bool ParallaxYLayer;
     [SerializeField] private GameObject camera;
     [SerializeField] private float parallaxEffect;
     
     void Start()
     {
-        startPosX = transform.position.x;
-        startPosY = transform.position.y;
+        startPos = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
     
     void Update()
     {
-        xAxisParallax();
-        if (ParallaxYLayer) {
-            yAxisParallax();
-        }
-        transform.position = new Vector3(startPosX + distanceX, startPosY + distanceY, transform.position.z);
-    }
+        temp = (camera.transform.position.x * (1 - parallaxEffect));
+        distance = (camera.transform.position.x * parallaxEffect);
+        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
 
-    void xAxisParallax()
-    {
-        tempX = (camera.transform.position.x * (1 - parallaxEffect));
-        distanceX = (camera.transform.position.x * parallaxEffect);
-
-        if (tempX > startPosX + length)
+        if (temp > startPos + length)
         {
-            startPosX += length;
+            startPos += length;
         }
-        else if(tempX < startPosX - length)
+        else if(temp < startPos - length)
         {
-            startPosX -= length;
-        }
-    }
-
-    void yAxisParallax()
-    {
-        tempY = (camera.transform.position.y * (1 - parallaxEffect));
-        distanceY = (camera.transform.position.y * parallaxEffect);
-
-        if (tempY > startPosY + length)
-        {
-            startPosY += length;
-        }
-        else if(tempY < startPosY - length)
-        {
-            startPosY -= length;
+            startPos -= length;
         }
     }
 }

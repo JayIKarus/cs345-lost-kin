@@ -68,9 +68,8 @@ public class GameController : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("StartMenu");
-        curScene = "StartMenu";
-        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+        curScene = "MainMenu";
     }
     public void StartGame()
     {

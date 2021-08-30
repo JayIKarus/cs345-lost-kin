@@ -8,9 +8,6 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    [SerializeField] private AudioMixerGroup musicMixerGroup;
-    [SerializeField] private AudioMixerGroup sfxMixerGroup;
-
     void Awake()
     {
         if(instance == null)
@@ -31,19 +28,6 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-
-
-            switch (s.audioType)
-            {
-                case Sound.AudioTypes.SFX:
-                    s.source.outputAudioMixerGroup = sfxMixerGroup;
-                    break;
-
-                case Sound.AudioTypes.Music:
-                    s.source.outputAudioMixerGroup = musicMixerGroup;
-                    break;
-            }
-
         }
     }
 
@@ -64,11 +48,5 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null) return;
         s.source.PlayOneShot(s.clip);
-    }
-
-    public void UpdateMixerVolume()
-    {
-        musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(AudioOptionsManager.musicVolume) * 20);
-        musicMixerGroup.audioMixer.SetFloat("SFX Volume", Mathf.Log10(AudioOptionsManager.sfxVolume) * 20);
     }
 }
