@@ -42,17 +42,11 @@ public class NPC : MonoBehaviour
             if(XMove)
             {
                 XMove = false;
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
             }
 
             else
             {
                 XMove = true;
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
             }
         }
     }
