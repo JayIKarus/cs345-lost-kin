@@ -9,14 +9,14 @@ public class HealthManager : MonoBehaviour
 {
     public int maxPlayerHealth;
     public static int playerHealth;
-
-    Text text;
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
 
     private LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<Text>();
         playerHealth = maxPlayerHealth;
         levelManager = FindObjectOfType<LevelManager>();
     }
@@ -24,14 +24,22 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerHealth == 2)
+        {
+            Destroy(heart3);
+        }
+        if(playerHealth == 1)
+        {
+            Destroy(heart2);
+        }
         if(playerHealth <= 0)
         {
+            Destroy(heart1);
             levelManager.RespawnPlayer();
         }
-        text.text = "" + playerHealth;
     }
 
-    public static void HurtPlayer(int damageToGive)
+    public static void HurtPlayer(int damageToGive, GameObject heart1, GameObject heart2, GameObject heart3)
     {
         playerHealth -= damageToGive;
     }
