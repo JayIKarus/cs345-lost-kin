@@ -30,7 +30,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-
         foreach(Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -39,7 +38,6 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-
 
             switch (s.audioType)
             {
@@ -51,7 +49,6 @@ public class AudioManager : MonoBehaviour
                     s.source.outputAudioMixerGroup = musicMixerGroup;
                     break;
             }
-
         }
     }
 
@@ -79,7 +76,6 @@ public class AudioManager : MonoBehaviour
     {
         musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(AudioOptionsManager.musicVolume) * 20);
         musicMixerGroup.audioMixer.SetFloat("SFX Volume", Mathf.Log10(AudioOptionsManager.sfxVolume) * 20);
-        Debug.Log(AudioOptionsManager.musicVolume);
     }
 
     public void SaveBGM()
@@ -104,4 +100,7 @@ public class AudioManager : MonoBehaviour
         bgmSlider.value = bgmFloat;
         sfxSlider.value = sfxFloat;
     }
+
+
+
 }
