@@ -13,20 +13,13 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
-	[SerializeField] public float additionalJumps = 1;                          // Amount of of additional jumps the player has
-	/*[SerializeField] public bool isTouchingFront;
-	[SerializeField] public bool isWallSliding = false;                         // Whether or not the player is on a wall
-	[SerializeField] public Transform m_WallCheck;
-	[SerializeField] public float wallSlidingSpeed;
-	[SerializeField] public bool wallJumping;
-	[SerializeField] public float wallJumpingTime;
-	*/
+	[SerializeField] public float additionalJumps = 1;
+
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
-	///const float k_WallRadius = .2f;
 	private Rigidbody2D m_Rigidbody2D;
-	public bool m_FacingRight = true;  // For determining which way the player is currently facing.
+	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
 	[Header("Events")]
@@ -59,15 +52,14 @@ public class CharacterController2D : MonoBehaviour
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		m_Grounded = Physics2D.OverlapCircle(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-		///isTouchingFront = Physics2D.OverlapCircle(m_WallCheck.position, k_WallRadius, m_WhatIsGround);
-		if (m_Grounded) { 
-				additionalJumps = 1;
-				if (!wasGrounded) { 
-					OnLandEvent.Invoke();
-			}
-		}
-
-
+        ///isTouchingFront = Physics2D.OverlapCircle(m_WallCheck.position, k_WallRadius, m_WhatIsGround);
+		Debug.Log("Ground check: " + m_Grounded);
+        if (m_Grounded) {
+                additionalJumps = 1;
+                if (!wasGrounded) {
+                    OnLandEvent.Invoke();
+            }
+        }
 	}
 
 
@@ -146,31 +138,7 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			additionalJumps -= 1;
         }
-		/*
-		if (isTouchingFront == true && !m_Grounded && move != 0)
-        {
-			isWallSliding = true;
-        }
-		else
-        {
-			isWallSliding = false;
-        }
-		if (isWallSliding)
-        {
-			m_Rigidbody2D.AddForce(new Vector2(0f, -wallSlidingSpeed));
-        }
-		if (isWallSliding && jump)
-		{
-			wallJumping = true;
-			Invoke("SetWallJumpingToFalse", wallJumpingTime);
-		}
-		if (wallJumping)
-        {
-			m_Rigidbody2D.AddForce(new Vector2(-move, m_JumpForce/2));
-        }
-		*/
 	}
-
 
 
 	private void Flip()
@@ -179,15 +147,9 @@ public class CharacterController2D : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 
 		// Multiply the player's x local scale by -1.
-		/*
-		Vector3 theScale = transform.localScale;
+		/*Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
 		*/
 	}
-
-	/*void SetWallJumpingToFalse()
-    {
-		wallJumping = false;
-    }*/
 }
