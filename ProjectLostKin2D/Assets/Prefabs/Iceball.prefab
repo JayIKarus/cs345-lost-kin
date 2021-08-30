@@ -4818,6 +4818,7 @@ GameObject:
   - component: {fileID: 6990881744536451841}
   - component: {fileID: 990016730303855484}
   - component: {fileID: 635257382183291925}
+  - component: {fileID: 5020877210490275994}
   m_Layer: 0
   m_Name: Iceball
   m_TagString: Untagged
@@ -4948,6 +4949,7 @@ MonoBehaviour:
   rb2d: {fileID: 6990881744536451841}
   target: {fileID: 0}
   moveDirection: {x: 0, y: 0}
+  pAnimator: {fileID: 0}
 --- !u!58 &635257382183291925
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4964,6 +4966,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35171983
+--- !u!114 &5020877210490275994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939711116859804601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874b7171faa888349b6d41cf9c0bad2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToGive: 1
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
 --- !u!1 &6670401197749824516
 GameObject:
   m_ObjectHideFlags: 0

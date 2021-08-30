@@ -9,9 +9,14 @@ public class HurtPlayer : MonoBehaviour
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+    public GameObject target;
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.Find("Player");
+        heart1 = GameObject.Find("Health_1");
+        heart2 = GameObject.Find("Health_2");
+        heart3 = GameObject.Find("Health_3");
 
     }
 
@@ -23,9 +28,9 @@ public class HurtPlayer : MonoBehaviour
 
     private void Awake()
     {
-        heart1 = GameObject.Find("HeartContainer_1");
-        heart2 = GameObject.Find("HeartContainer_2");
-        heart3 = GameObject.Find("HeartContainer_3");
+        heart1 = GameObject.Find("Health_1");
+        heart2 = GameObject.Find("Health_2");
+        heart3 = GameObject.Find("Health_3");
     }
 
 
@@ -37,4 +42,11 @@ public class HurtPlayer : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider == target.GetComponent<Collider2D>())
+        {
+            HealthManager.HurtPlayer(damageToGive, heart1, heart2, heart3);
+        }
+    }
 }

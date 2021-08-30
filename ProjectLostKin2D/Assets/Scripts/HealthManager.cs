@@ -26,15 +26,15 @@ public class HealthManager : MonoBehaviour
     {
         if (playerHealth == 2)
         {
-            Destroy(heart3);
+            heart3.SetActive(false);
         }
         if (playerHealth == 1)
         {
-            Destroy(heart2);
+            heart2.SetActive(false);
         }
         if (playerHealth <= 0)
         {
-            Destroy(heart1);
+            heart1.SetActive(false);
             levelManager.RespawnPlayer();
         }
     }
@@ -47,5 +47,9 @@ public class HealthManager : MonoBehaviour
     public void FullHealth()
     {
         playerHealth = maxPlayerHealth;
+        heart3.SetActive(true);
+        heart2.SetActive(true);
+        heart1.SetActive(true);
+
     }
 }

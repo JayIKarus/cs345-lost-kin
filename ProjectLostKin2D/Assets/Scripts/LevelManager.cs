@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Lv2");
+            healthManager.FullHealth();
         }
     }
 }
