@@ -12,6 +12,31 @@ public class VideoOptionsManager : MonoBehaviour
 
     //public Dropdown resolutionDropdown;
     public TMP_Dropdown resolutionDropdown;
+    public Toggle fullscreenToggle;
+
+    //Resolution PlayerPrefs
+    private static readonly string resNamePref = "resOption";
+    private static readonly string resOptionPref = "Resolution";
+    private static readonly string fullscreenPref = "FullscreenToggle";
+    private int toggleFullscreenState;
+    private bool isFullscreen = false;
+
+
+    private void Awake()
+    {
+        toggleFullscreenState = PlayerPrefs.GetInt(fullscreenPref);
+
+        if(toggleFullscreenState == 1)
+        {
+            isFullscreen = true;
+            fullscreenToggle.isOn = true;
+            Debug.Log("is fullscreen");
+        } else
+        {
+            fullscreenToggle.isOn = false;
+            Debug.Log("isn't fullscreen");
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +75,15 @@ public class VideoOptionsManager : MonoBehaviour
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+
+        if(isFullscreen == false)
+        {
+            PlayerPrefs.SetInt(fullscreenPref, 0);
+        } else
+        {
+            isFullscreen = true;
+            PlayerPrefs.SetInt(fullscreenPref, 1);
+        }
     }
 
     
