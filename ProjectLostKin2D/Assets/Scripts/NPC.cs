@@ -21,7 +21,7 @@ public class NPC : MonoBehaviour
         if(XMove)
         {
             transform.Translate(2 * Time.deltaTime * EnemySpeed, 0, 0);
-            
+            transform.localScale = new Vector2(2,2);
         }
         else
         {
