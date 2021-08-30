@@ -19,6 +19,10 @@ public class AudioManager : MonoBehaviour
     private static readonly string bgmPref = "Music";
     private static readonly string sfxPref = "SFX";
 
+    private string MainMenuTrack = "MainMenu";
+
+    private bool isPlayingMainMenuTrack;
+
     void Awake()
     {
         if(instance == null)
@@ -29,6 +33,8 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        DontDestroyOnLoad(gameObject);
 
         foreach(Sound s in sounds)
         {
@@ -54,9 +60,15 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-        Play("MainMenu");
+        Play(MainMenuTrack);
+        isPlayingMainMenuTrack = true;
         LoadValues();
     }
+
+    public void SwapTrack()
+    {
+    }
+
 
     public void Play(string name)
     {
@@ -70,6 +82,19 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null) return;
         s.source.PlayOneShot(s.clip);
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return;
+        s.source.Stop();
+    }
+
+    public void getTrack(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return;
     }
 
     public void UpdateMixerVolume()
