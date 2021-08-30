@@ -87,7 +87,6 @@ public class GrappleGun : MonoBehaviour
                     Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
                     Vector2 targetPos = grapplePoint - firePointDistnace;
                     gunHolder.position = Vector2.Lerp(gunHolder.position, targetPos, Time.deltaTime * launchSpeed);
-                    
                 }
             }
 
@@ -142,6 +141,7 @@ public class GrappleGun : MonoBehaviour
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleVine.enabled = true;
+                    VineSound();
                 }
             }
         }
@@ -196,4 +196,8 @@ public class GrappleGun : MonoBehaviour
         }
     }
 
+    private void VineSound()
+    {
+        FindObjectOfType<AudioManager>().PlayOnce("Vine00");
+    }
 }

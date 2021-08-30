@@ -5779,11 +5779,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - audioType: 0
-    name: 
-    clip: {fileID: 0}
+    name: Jump
+    clip: {fileID: 8300000, guid: 41e8b95c1e6c94e4abfbd41b72845ee0, type: 3}
     loop: 0
-    volume: 0
-    pitch: 0
+    volume: 0.277
+    pitch: 1.02
     source: {fileID: 0}
   - audioType: 0
     name: 

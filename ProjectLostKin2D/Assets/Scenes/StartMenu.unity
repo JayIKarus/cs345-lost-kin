@@ -8243,6 +8243,48 @@ MonoBehaviour:
     volume: 0.612
     pitch: 1.01
     source: {fileID: 0}
+  - audioType: 0
+    name: OptionSelected
+    clip: {fileID: 8300000, guid: d57dce7f224af0f47b7e86c97d2ba9d1, type: 3}
+    loop: 0
+    volume: 0.612
+    pitch: 1.01
+    source: {fileID: 0}
+  - audioType: 0
+    name: Jump
+    clip: {fileID: 8300000, guid: 024c39a5a9cb88d419ae7837ecd87e8d, type: 3}
+    loop: 0
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - audioType: 0
+    name: Vine00
+    clip: {fileID: 8300000, guid: 246baee2d51e3684b8e8de3cf3e9c9ed, type: 3}
+    loop: 0
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - audioType: 1
+    name: BGM_00
+    clip: {fileID: 8300000, guid: 1c1e19301849f36458f90854ea00941c, type: 3}
+    loop: 1
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - audioType: 1
+    name: BGM_01
+    clip: {fileID: 8300000, guid: dd433ba7855eaf542881102f9daf30de, type: 3}
+    loop: 1
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - audioType: 1
+    name: BGM_02
+    clip: {fileID: 8300000, guid: 48e44f1a2f6796d4faf2f5a4e5e8bf8f, type: 3}
+    loop: 1
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
   musicMixerGroup: {fileID: 431894307630447115, guid: 655c4f51c2705604ba4cf3712d4b27f0, type: 2}
   sfxMixerGroup: {fileID: 6630072590264192951, guid: 655c4f51c2705604ba4cf3712d4b27f0, type: 2}
   bgmSlider: {fileID: 244572876}
@@ -10794,6 +10836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1627346dbfc095247a53d94810ac1526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scene1: Lambo Testing Grounds
   optionsUI: {fileID: 254182420}
   mainUI: {fileID: 579234178}
   gameBG: {fileID: 91561522}

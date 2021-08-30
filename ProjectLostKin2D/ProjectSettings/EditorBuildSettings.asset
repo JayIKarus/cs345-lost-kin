@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Lvl1_Proto.unity
     guid: 10fcf915a203b474ea091dafc2d5d39a
+  - enabled: 1
+    path: Assets/Scenes/Lambo Testing Grounds.unity
+    guid: 6407252f534bded4aa633ff3c4109f72
   m_configObjects: {}
