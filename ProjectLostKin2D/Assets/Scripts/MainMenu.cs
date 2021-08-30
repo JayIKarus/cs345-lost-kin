@@ -13,7 +13,11 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
+<<<<<<< HEAD
         SceneManager.LoadScene("Lv1");
+=======
+        SceneManager.LoadScene("Lvl1_Proto");
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
     }
 
     public void Quit()

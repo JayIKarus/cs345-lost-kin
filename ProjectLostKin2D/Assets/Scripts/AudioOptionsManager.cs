@@ -6,12 +6,17 @@ using UnityEngine.UI;
 public class AudioOptionsManager : MonoBehaviour
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static float musicVolume { get; set; }
     public static float sfxVolume { get; set; }
 =======
     public static float musicVolume { get; private set; }
     public static float sfxVolume { get; private set; }
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+    public static float musicVolume { get; private set; }
+    public static float sfxVolume { get; private set; }
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
 
     [SerializeField] private Text musicText;
     [SerializeField] private Text sfxText;
@@ -22,9 +27,12 @@ public class AudioOptionsManager : MonoBehaviour
         musicText.text = ((int)(value * 100)).ToString();
         AudioManager.instance.UpdateMixerVolume();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
     }
 
     public void sfxChangeValue(float value)
@@ -33,8 +41,11 @@ public class AudioOptionsManager : MonoBehaviour
         sfxText.text = ((int)(value * 100)).ToString();
         AudioManager.instance.UpdateMixerVolume();
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
     }
 }

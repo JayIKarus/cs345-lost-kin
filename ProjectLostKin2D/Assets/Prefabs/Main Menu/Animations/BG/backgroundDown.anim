@@ -30,6 +30,7 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.5
 <<<<<<< HEAD
+<<<<<<< HEAD
         value: {x: 0, y: 10.4, z: 0}
         inSlope: {x: 0, y: 2.800005, z: 0}
         outSlope: {x: 0, y: 2.800005, z: 0}
@@ -38,6 +39,11 @@ AnimationClip:
         inSlope: {x: 0, y: 0.78518665, z: 0}
         outSlope: {x: 0, y: 0.78518665, z: 0}
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+        value: {x: 0, y: 10.403704, z: 0}
+        inSlope: {x: 0, y: 0.78518665, z: 0}
+        outSlope: {x: 0, y: 0.78518665, z: 0}
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -45,10 +51,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
         value: {x: 0, y: 11.1, z: 0}
 =======
         value: {x: 0, y: 10.6, z: 0}
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+        value: {x: 0, y: 10.6, z: 0}
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -141,6 +151,7 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.5
 <<<<<<< HEAD
+<<<<<<< HEAD
         value: 10.4
         inSlope: 2.800005
         outSlope: 2.800005
@@ -149,6 +160,11 @@ AnimationClip:
         inSlope: 0.78518665
         outSlope: 0.78518665
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+        value: 10.403704
+        inSlope: 0.78518665
+        outSlope: 0.78518665
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -156,10 +172,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
         value: 11.1
 =======
         value: 10.6
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+        value: 10.6
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
         inSlope: 0
         outSlope: 0
         tangentMode: 136

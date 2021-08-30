@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 425dbec97e7a2724aad7211b3adb018e
+=======
+guid: 6cf3fa4e3bd0b5543b5786c5b8905e57
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

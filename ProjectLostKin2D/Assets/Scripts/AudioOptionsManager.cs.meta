@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 72fe41db6a9da19418f97b512cedd295
+=======
+guid: 1bda55d2330110c4dad56a742fc818ed
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

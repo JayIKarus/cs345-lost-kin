@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup sfxMixerGroup;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Slider bgmSlider, sfxSlider;
     private float bgmFloat, sfxFloat;
 
@@ -22,6 +23,8 @@ public class AudioManager : MonoBehaviour
 
 =======
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
     void Awake()
     {
         if(instance == null)
@@ -83,6 +86,7 @@ public class AudioManager : MonoBehaviour
         musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(AudioOptionsManager.musicVolume) * 20);
         musicMixerGroup.audioMixer.SetFloat("SFX Volume", Mathf.Log10(AudioOptionsManager.sfxVolume) * 20);
 <<<<<<< HEAD
+<<<<<<< HEAD
         Debug.Log(AudioOptionsManager.musicVolume);
     }
 
@@ -109,5 +113,7 @@ public class AudioManager : MonoBehaviour
         sfxSlider.value = sfxFloat;
 =======
 >>>>>>> parent of 4b264f0 (Revert "Merge branch 'master' into cl3362")
+=======
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
     }
 }

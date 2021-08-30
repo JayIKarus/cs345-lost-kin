@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - NPC
+  - Turn
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
   layers:
   - Default
   - TransparentFX

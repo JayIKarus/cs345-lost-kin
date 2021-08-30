@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 757a2b0935ab8b140b60fbda6c20ec67
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
+=======
+guid: ce347a6010a0d7b4f8c86883e3c11c19
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>> parent of 240d573 (Revert "Merge branch 'master' into nca35")
   userData: 
   assetBundleName: 
   assetBundleVariant: 
