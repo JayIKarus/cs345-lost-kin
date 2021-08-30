@@ -1181,6 +1181,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 775918589}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SaveBGM
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &252177002
 GameObject:
   m_ObjectHideFlags: 0
@@ -8233,6 +8245,8 @@ MonoBehaviour:
     source: {fileID: 0}
   musicMixerGroup: {fileID: 431894307630447115, guid: 655c4f51c2705604ba4cf3712d4b27f0, type: 2}
   sfxMixerGroup: {fileID: 6630072590264192951, guid: 655c4f51c2705604ba4cf3712d4b27f0, type: 2}
+  bgmSlider: {fileID: 244572876}
+  sfxSlider: {fileID: 1240282443}
 --- !u!4 &775918590
 Transform:
   m_ObjectHideFlags: 0
@@ -10303,6 +10317,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 775918589}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SaveSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1245481402
 GameObject:
   m_ObjectHideFlags: 0
@@ -10784,6 +10810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1842479129}
+  fullscreenToggle: {fileID: 449931509}
 --- !u!1 &1406419455
 GameObject:
   m_ObjectHideFlags: 0
@@ -13010,6 +13037,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: OptionSelected
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1400692558}
+          m_TargetAssemblyTypeName: VideoOptionsManager, Assembly-CSharp
+          m_MethodName: SaveResolution
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1918862904
