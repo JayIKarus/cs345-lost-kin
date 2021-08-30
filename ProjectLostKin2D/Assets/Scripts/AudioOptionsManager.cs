@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class AudioOptionsManager : MonoBehaviour
 {
-    public static float musicVolume { get; private set; }
-    public static float sfxVolume { get; private set; }
+    public static float musicVolume { get; set; }
+    public static float sfxVolume { get; set; }
 
     [SerializeField] private Text musicText;
     [SerializeField] private Text sfxText;
@@ -16,6 +16,7 @@ public class AudioOptionsManager : MonoBehaviour
         musicVolume = value;
         musicText.text = ((int)(value * 100)).ToString();
         AudioManager.instance.UpdateMixerVolume();
+
     }
 
     public void sfxChangeValue(float value)
@@ -23,5 +24,6 @@ public class AudioOptionsManager : MonoBehaviour
         sfxVolume = value;
         sfxText.text = ((int)(value * 100)).ToString();
         AudioManager.instance.UpdateMixerVolume();
+        
     }
 }
