@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NPC
+  - Turn
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -11,6 +14,7 @@ TagManager:
   - 
   - Water
   - UI
+  - Grapplable
   - 
   - 
   - 
@@ -24,8 +28,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - UI Title
   - 
   - 
   - 
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3970681825
+    locked: 0
+  - name: MidGround
+    uniqueID: 187429585
+    locked: 0
+  - name: Foreground
+    uniqueID: 1047539433
+    locked: 0
+  - name: DialogText
+    uniqueID: 16059715
     locked: 0

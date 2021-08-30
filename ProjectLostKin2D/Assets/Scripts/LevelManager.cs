@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -26,12 +25,5 @@ public class LevelManager : MonoBehaviour
     {
         player.transform.position = currCheckpoint.transform.position;
         healthManager.FullHealth();
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            SceneManager.LoadScene("Lv2");
-        }
     }
 }

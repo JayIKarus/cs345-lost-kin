@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        curScene = "StartMenu";
+        curScene = "MainMenu";
     }
 
     // Update is called once per frame
@@ -48,7 +48,6 @@ public class GameController : MonoBehaviour
                 Pause();
             }
         }
-        
         
     }
 
@@ -74,8 +73,8 @@ public class GameController : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Lv1");
-        curScene = "Lv1";
+        SceneManager.LoadScene("Lvl1_Proto");
+        curScene = "Lvl1_Proto";
     }
 
     public void QuitGame()
